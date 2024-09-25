@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2EXP - Finance</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6475/6475938.png" type="image/icon type"/>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #343a40;
+            padding: 15px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        #sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        #sidebar a:hover {
+            background-color: #495057;
+        }
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar and Content -->
+    <div id="sidebar">
+        <h2 class="text-white">E2EXP - Finance</h2>
+        <a href="#">Dashboard</a>
+        <a href="#">Layouts</a>
+        <a href="#">Pages</a>
+        <a href="#">Charts</a>
+        <a href="#">Tables</a>
+    </div>
+    <div id="content">
+        <h1>Dashboard</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">Primary Card</h5>
+                        <p class="card-text">Some quick example text.</p>
+                        <a href="#" class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">Warning Card</h5>
+                        <p class="card-text">Some quick example text.</p>
+                        <a href="#" class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Success Card</h5>
+                        <p class="card-text">Some quick example text.</p>
+                        <a href="#" class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">Danger Card</h5>
+                        <p class="card-text">Some quick example text.</p>
+                        <a href="#" class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Area Chart Example
+                    </div>
+                    <div class="card-body">
+                        <canvas id="areaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Bar Chart Example
+                    </div>
+                    <div class="card-body">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Gráficos
+        var ctx = document.getElementById('areaChart').getContext('2d');
+        var areaChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mar 1', 'Mar 3', 'Mar 5', 'Mar 7', 'Mar 9', 'Mar 11', 'Mar 13'],
+                datasets: [{
+                    label: 'Dataset',
+                    data: [12000, 19000, 30000, 5000, 20000, 30000, 45000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Dataset',
+                    data: [5000, 10000, 7500, 15000, 12500, 20000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
